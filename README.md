@@ -1,3 +1,12 @@
+## IMPORTANT
+
+Personal fork. When doing the pull request to master, update the path back to github.com/`gohugoio`/hugo-mod-bootstrap-scss-v4 in two places:
+
+1. This `README.md` file under section Use.
+2. The first line in the `go.mod` file.
+
+---
+
 This is a [Hugo module](https://gohugo.io/hugo-modules/) that packages the [Bootstrap v4](https://getbootstrap.com/docs/4.6/getting-started/introduction/) SCSS source ready to be used in Hugo.
 
 You need the Hugo extended version and [Go](https://golang.org/dl/) to use this component.
@@ -9,7 +18,7 @@ Add the component to your Hugo site's config:
 ```toml
 [module]
 [[module.imports]]
-path = "github.com/gohugoio/hugo-mod-bootstrap-scss-v4"
+path = "github.com/pschrey2/hugo-mod-bootstrap-scss-v4"
 ```
 
 The Bootstrap SCSS will be mounted in `assets/scss/bootstrap`, so you can then import either all:
