@@ -13,13 +13,32 @@ You need the Hugo extended version and [Go](https://golang.org/dl/) to use this 
 
 ## Use
 
-Add the component to your Hugo site's config:
+Add the component either to your Hugo site's config or to your Hugo theme's config.
 
-```toml
-[module]
-[[module.imports]]
-path = "github.com/pschrey2/hugo-mod-bootstrap-scss-v4"
-```
+1. Hugo site's config:
+
+   ```toml
+   [module]
+   [[module.imports]]
+   path = "github.com/pschrey2/hugo-mod-bootstrap-scss-v4"
+   ```
+
+2. Hugo theme's config:
+
+   ```toml
+   [module]
+   [[module.mounts]]
+   # Workaround for https://github.com/gohugoio/hugo/issues/6945
+   source = "assets/scss/bootstrap/_vendor"
+   target = "assets/scss/bootstrap/vendor"
+   [[module.imports]]
+   path = "github.com/pschrey2/hugo-mod-bootstrap-scss-v4"
+   [[module.imports.mounts]]
+   source = "assets/scss/bootstrap"
+   target = "assets/scss/bootstrap"
+   ```
+
+If added to a theme, the workaround requires also a local copy the `_rfs.scss` file in the `assets/scss/bootstrap/_vendor` folder.
 
 The Bootstrap SCSS will be mounted in `assets/scss/bootstrap`, so you can then import either all:
 
